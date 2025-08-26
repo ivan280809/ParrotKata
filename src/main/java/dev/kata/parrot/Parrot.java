@@ -5,30 +5,40 @@ public class Parrot {
     private final ParrotType type;
     private final int numberOfCoconuts;
     private final double voltage;
-    private final boolean nailed;
+    private final boolean isNailed;
 
-    public Parrot(ParrotType type, int numberOfCoconuts, double voltage, boolean nailed) {
+    public Parrot(ParrotType type, int numberOfCoconuts, double voltage, boolean isNailed) {
         this.type = type;
         this.numberOfCoconuts = numberOfCoconuts;
         this.voltage = voltage;
-        this.nailed = nailed;
+        this.isNailed = isNailed;
     }
 
     public double getSpeed() {
-        switch (type) {
-            case EUROPEAN:
-                return 12.0;
-            case AFRICAN:
-                return Math.max(0.0, 12.0 - 9.0 * numberOfCoconuts);
-            case NORWEGIAN_BLUE:
-                return nailed ? 0.0 : Math.min(24.0, voltage * 12.0);
-            default:
-                throw new IllegalStateException("Tipo de loro no soportado: " + type);
-        }
+        return switch (type) {
+            case EUROPEAN -> getBaseSpeed();
+            case AFRICAN -> Math.max(0, getBaseSpeed() - getLoadFactor() * numberOfCoconuts);
+            case NORWEGIAN_BLUE -> (isNailed) ? 0 : getBaseSpeed(voltage);
+        };
     }
 
-    public ParrotType getType() { return type; }
-    public int getNumberOfCoconuts() { return numberOfCoconuts; }
-    public double getVoltage() { return voltage; }
-    public boolean isNailed() { return nailed; }
+    private double getBaseSpeed(double voltage) {
+        return Math.min(24.0, voltage * getBaseSpeed());
+    }
+
+    private double getLoadFactor() {
+        return 9.0;
+    }
+
+    private double getBaseSpeed() {
+        return 12.0;
+    }
+
+    public String getCry() {
+        return switch (type) {
+            case EUROPEAN -> "Sqoork!";
+            case AFRICAN -> "Sqaark!";
+            case NORWEGIAN_BLUE -> voltage > 0 ? "Bzzzzzz" : "...";
+        };
+    }
 }
