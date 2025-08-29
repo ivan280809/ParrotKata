@@ -1,6 +1,6 @@
 package dev.kata.parrot.models;
 
-public class NorwegianBlueParrot implements ParrotBehaviour {
+public class NorwegianBlueParrot implements ParrotSpecies {
 
     private static final double BASE_SPEED = 12.0;
     private static final String CRY_SOUND = "Bzzzzzz";

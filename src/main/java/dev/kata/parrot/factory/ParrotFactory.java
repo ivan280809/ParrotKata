@@ -4,7 +4,7 @@ import dev.kata.parrot.models.*;
 
 public class ParrotFactory {
 
-    public static ParrotBehaviour createParrotBehaviour(ParrotType type, int numberOfCoconuts, double voltage, boolean isNailed) {
+    public static ParrotSpecies createParrotBehaviour(ParrotType type, int numberOfCoconuts, double voltage, boolean isNailed) {
         return switch (type) {
             case EUROPEAN -> new EuropeanParrot();
             case AFRICAN -> new AfricanParrot(numberOfCoconuts);

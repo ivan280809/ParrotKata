@@ -1,6 +1,6 @@
 package dev.kata.parrot.models;
 
-public class AfricanParrot implements ParrotBehaviour {
+public class AfricanParrot implements ParrotSpecies {
 
     private static final double BASE_SPEED = 12.0;
     private static final double LOAD_FACTOR = 9.0;

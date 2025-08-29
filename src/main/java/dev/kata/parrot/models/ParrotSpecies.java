@@ -1,6 +1,6 @@
 package dev.kata.parrot.models;
 
-public interface ParrotBehaviour {
+public interface ParrotSpecies {
     double getSpeed();
     String getCry();
 }
