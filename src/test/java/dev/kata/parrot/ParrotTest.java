@@ -1,5 +1,8 @@
 package dev.kata.parrot;
 
+import dev.kata.parrot.factory.ParrotFactory;
+import dev.kata.parrot.models.ParrotBehaviour;
+import dev.kata.parrot.models.ParrotType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,65 +11,65 @@ public class ParrotTest {
 
     @Test
     public void getSpeedOfEuropeanParrot() {
-        Parrot parrot = new Parrot(ParrotType.EUROPEAN, 0, 0, false);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.EUROPEAN, 0, 0, false);
         assertEquals(12.0, parrot.getSpeed(), 0.0);
     }
     @Test
     public void getSpeedOfAfricanParrot_With_One_Coconut() {
-        Parrot parrot = new Parrot(ParrotType.AFRICAN, 1, 0, false);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.AFRICAN, 1, 0, false);
         assertEquals(3.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getSpeedOfAfricanParrot_With_Two_Coconuts() {
-        Parrot parrot = new Parrot(ParrotType.AFRICAN, 2, 0, false);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.AFRICAN, 2, 0, false);
         assertEquals(0.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getSpeedOfAfricanParrot_With_No_Coconuts() {
-        Parrot parrot = new Parrot(ParrotType.AFRICAN, 0, 0, false);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.AFRICAN, 0, 0, false);
         assertEquals(12.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getSpeedNorwegianBlueParrot_nailed() {
-        Parrot parrot = new Parrot(ParrotType.NORWEGIAN_BLUE, 0, 1.5, true);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.NORWEGIAN_BLUE, 0, 1.5, true);
         assertEquals(0.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getSpeedNorwegianBlueParrot_not_nailed() {
-        Parrot parrot = new Parrot(ParrotType.NORWEGIAN_BLUE, 0, 1.5, false);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.NORWEGIAN_BLUE, 0, 1.5, false);
         assertEquals(18.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getSpeedNorwegianBlueParrot_not_nailed_high_voltage() {
-        Parrot parrot = new Parrot(ParrotType.NORWEGIAN_BLUE, 0, 4, false);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.NORWEGIAN_BLUE, 0, 4, false);
         assertEquals(24.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getCryOfEuropeanParrot() {
-        Parrot parrot = new Parrot(ParrotType.EUROPEAN, 0, 0, false);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.EUROPEAN, 0, 0, false);
         assertEquals("Sqoork!", parrot.getCry());
     }
 
     @Test
     public void getCryOfAfricanParrot() {
-        Parrot parrot = new Parrot(ParrotType.AFRICAN, 1, 0, false);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.AFRICAN, 1, 0, false);
         assertEquals("Sqaark!", parrot.getCry());
     }
     @Test
     public void getCryOfNorwegianBlueHighVoltage() {
-        Parrot parrot = new Parrot(ParrotType.NORWEGIAN_BLUE, 0, 4, false);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.NORWEGIAN_BLUE, 0, 4, false);
         assertEquals("Bzzzzzz", parrot.getCry());
     }
 
     @Test
     public void getCryOfNorwegianBlueNoVoltage() {
-        Parrot parrot = new Parrot(ParrotType.NORWEGIAN_BLUE, 0, 0, false);
+        ParrotBehaviour parrot = ParrotFactory.createParrotBehaviour(ParrotType.NORWEGIAN_BLUE, 0, 0, false);
         assertEquals("...", parrot.getCry());
     }
 }

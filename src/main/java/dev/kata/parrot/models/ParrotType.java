@@ -1,4 +1,4 @@
-package dev.kata.parrot;
+package dev.kata.parrot.models;
 
 public enum ParrotType {
     EUROPEAN,
