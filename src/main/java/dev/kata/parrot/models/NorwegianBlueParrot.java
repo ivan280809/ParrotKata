@@ -11,22 +11,29 @@ public class NorwegianBlueParrot implements ParrotSpecies {
     private final double voltage;
     private final boolean isNailed;
 
+    private final double speed;
+
     public NorwegianBlueParrot(double voltage, boolean isNailed) {
         if (voltage < 0.0) {
             throw new IllegalArgumentException("voltage must be >= 0");
         }
         this.voltage = voltage;
         this.isNailed = isNailed;
+        speed = calculateSpeed();
     }
 
     @Override
     public double getSpeed() {
-        return (isNailed) ? NO_SPEED : getBaseSpeed(voltage);
+        return speed;
     }
 
     @Override
     public String getCry() {
         return voltage > NO_SPEED ? CRY_SOUND : DEAD_CRY_SOUND;
+    }
+
+    private double calculateSpeed() {
+        return (isNailed) ? NO_SPEED : getBaseSpeed(voltage);
     }
 
     private double getBaseSpeed(double voltage) {
