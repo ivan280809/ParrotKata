@@ -9,6 +9,9 @@ public class AfricanParrot implements ParrotSpecies {
     private final int numberOfCoconuts;
 
     public AfricanParrot(int numberOfCoconuts) {
+        if (numberOfCoconuts < 0) {
+            throw new IllegalArgumentException("numberOfCoconuts must be >= 0");
+        }
         this.numberOfCoconuts = numberOfCoconuts;
     }
 

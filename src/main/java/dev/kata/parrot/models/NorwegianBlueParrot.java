@@ -12,6 +12,9 @@ public class NorwegianBlueParrot implements ParrotSpecies {
     private final boolean isNailed;
 
     public NorwegianBlueParrot(double voltage, boolean isNailed) {
+        if (voltage < 0.0) {
+            throw new IllegalArgumentException("voltage must be >= 0");
+        }
         this.voltage = voltage;
         this.isNailed = isNailed;
     }

@@ -1,11 +1,14 @@
 package dev.kata.parrot;
 
 import dev.kata.parrot.factory.ParrotFactory;
+import dev.kata.parrot.models.AfricanParrot;
+import dev.kata.parrot.models.NorwegianBlueParrot;
 import dev.kata.parrot.models.ParrotSpecies;
 import dev.kata.parrot.models.ParrotType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ParrotTest {
 
@@ -71,5 +74,23 @@ public class ParrotTest {
     public void getCryOfNorwegianBlueNoVoltage() {
         ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.NORWEGIAN_BLUE, 0, 0, false);
         assertEquals("...", parrot.getCry());
+    }
+
+    @Test
+    void africanParrot_rejects_negative_coconuts() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new AfricanParrot(-1));
+    }
+
+    @Test
+    void norwegianBlue_rejects_negative_voltage_constructor() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new NorwegianBlueParrot(-0.1, false));
+    }
+
+    @Test
+    void factory_rejects_null_type() {
+        assertThrows(NullPointerException.class,
+                () -> ParrotFactory.createParrotSpecie(null, 0, 0.0, false));
     }
 }
