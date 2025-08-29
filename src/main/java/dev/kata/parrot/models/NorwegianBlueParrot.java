@@ -19,7 +19,7 @@ public class NorwegianBlueParrot implements ParrotSpecies {
         }
         this.voltage = voltage;
         this.isNailed = isNailed;
-        speed = calculateSpeed();
+        this.speed = calculateSpeed();
     }
 
     @Override

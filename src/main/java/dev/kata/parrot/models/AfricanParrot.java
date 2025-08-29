@@ -14,7 +14,7 @@ public class AfricanParrot implements ParrotSpecies {
             throw new IllegalArgumentException("numberOfCoconuts must be >= 0");
         }
         this.numberOfCoconuts = numberOfCoconuts;
-        speed = calculateSpeed();
+        this.speed = calculateSpeed();
     }
 
     @Override
