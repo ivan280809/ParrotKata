@@ -11,65 +11,65 @@ public class ParrotTest {
 
     @Test
     public void getSpeedOfEuropeanParrot() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.EUROPEAN, 0, 0, false);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.EUROPEAN, 0, 0, false);
         assertEquals(12.0, parrot.getSpeed(), 0.0);
     }
     @Test
     public void getSpeedOfAfricanParrot_With_One_Coconut() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.AFRICAN, 1, 0, false);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.AFRICAN, 1, 0, false);
         assertEquals(3.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getSpeedOfAfricanParrot_With_Two_Coconuts() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.AFRICAN, 2, 0, false);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.AFRICAN, 2, 0, false);
         assertEquals(0.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getSpeedOfAfricanParrot_With_No_Coconuts() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.AFRICAN, 0, 0, false);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.AFRICAN, 0, 0, false);
         assertEquals(12.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getSpeedNorwegianBlueParrot_nailed() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.NORWEGIAN_BLUE, 0, 1.5, true);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.NORWEGIAN_BLUE, 0, 1.5, true);
         assertEquals(0.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getSpeedNorwegianBlueParrot_not_nailed() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.NORWEGIAN_BLUE, 0, 1.5, false);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.NORWEGIAN_BLUE, 0, 1.5, false);
         assertEquals(18.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getSpeedNorwegianBlueParrot_not_nailed_high_voltage() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.NORWEGIAN_BLUE, 0, 4, false);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.NORWEGIAN_BLUE, 0, 4, false);
         assertEquals(24.0, parrot.getSpeed(), 0.0);
     }
 
     @Test
     public void getCryOfEuropeanParrot() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.EUROPEAN, 0, 0, false);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.EUROPEAN, 0, 0, false);
         assertEquals("Sqoork!", parrot.getCry());
     }
 
     @Test
     public void getCryOfAfricanParrot() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.AFRICAN, 1, 0, false);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.AFRICAN, 1, 0, false);
         assertEquals("Sqaark!", parrot.getCry());
     }
     @Test
     public void getCryOfNorwegianBlueHighVoltage() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.NORWEGIAN_BLUE, 0, 4, false);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.NORWEGIAN_BLUE, 0, 4, false);
         assertEquals("Bzzzzzz", parrot.getCry());
     }
 
     @Test
     public void getCryOfNorwegianBlueNoVoltage() {
-        ParrotSpecies parrot = ParrotFactory.createParrotBehaviour(ParrotType.NORWEGIAN_BLUE, 0, 0, false);
+        ParrotSpecies parrot = ParrotFactory.createParrotSpecie(ParrotType.NORWEGIAN_BLUE, 0, 0, false);
         assertEquals("...", parrot.getCry());
     }
 }
